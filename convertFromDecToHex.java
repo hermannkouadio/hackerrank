@@ -38,3 +38,18 @@ private static String fromDecToHex(int in) {
 		} while (r != 0);
 		return writeOntwoDigit(res);
 	}
+
+private static String writeOntwoDigit(String in) {
+		String out = "";
+		if (in.length() % 2 == 1) {
+			in = "0"+in;
+		}
+		for(int i=0; i<in.length(); i++) {
+			out += in.charAt(i);
+			if(i%2!=0) {
+				out +=":";
+			}
+		}
+		in = out.charAt(out.length()-1) == ':' ? out.substring(0, out.length()-1):out;
+		return in;
+	}
